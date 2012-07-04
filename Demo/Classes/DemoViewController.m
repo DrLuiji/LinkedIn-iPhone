@@ -94,6 +94,18 @@ static NSString *const kOAuthConsumerSecret  = @"";
   if( self.engine.isAuthorized ) {
     [self fetchProfile];
   }
+    if (([kOAuthConsumerKey length] ==0)||([kOAuthConsumerSecret length] ==0))
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Fill in your API and Secret keys"
+                                                            message:@"If you don't have an application registered yet, then [go sign up for one](https://www.linkedin.com/secure/developer)."
+                                                           delegate:nil 
+                                                  cancelButtonTitle:@"OK" 
+                                                  otherButtonTitles:nil];
+        
+        [alertView show];
+        
+    }
+
 }
 
 - (void)viewDidUnload {
